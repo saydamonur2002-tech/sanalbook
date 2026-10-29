@@ -58,6 +58,22 @@ assert.equal(
   false,
 );
 
+const latin = telifDenetle(
+  { ...ornek, author: 'Sabahattin Ali', authorDeathYear: 1948, translator: null, yazim: 'latin' },
+  2026,
+);
+assert.equal(latin.serbest, true);
+assert.equal(latin.serbestYil, 2019);
+assert.match(latin.gerekce, /1 Ocak 2019/);
+assert.doesNotMatch(latin.gerekce, /Osmanlıca/);
+assert.equal(
+  telifDenetle(
+    { ...ornek, authorDeathYear: 1948, translator: null, yazim: 'latin' },
+    2018,
+  ).serbest,
+  false,
+);
+
 function yuru(dizin) {
   const sonuc = [];
   for (const ad of readdirSync(dizin)) {

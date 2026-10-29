@@ -50,8 +50,10 @@ const works = defineCollection({
       sourceRetrieved: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
       originalPublication: z.string().nullable(),
       sourceNote: z.string().min(1).optional(),
-      /** Boş bırakılır. Seri gruplaması yapılmaz. */
+      /** Kitap veya derleme adı. Yoksa null. */
       seri: z.string().nullable().optional(),
+      /** latin: 1928 sonrası Latin harfli ilk basım. Osmanlıca aktarım cümlesi yazılmaz. */
+      yazim: z.enum(['latin', 'osmanlica']).optional(),
     })
     .superRefine((eser, ctx) => {
       const sonuc = telifDenetle(eser);
