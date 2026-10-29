@@ -1,0 +1,559 @@
+:root {
+  color-scheme: light;
+  --bg: #f4efe6;
+  --bg-elev: #fffaf3;
+  --ink: #241c16;
+  --ink-soft: #5e534a;
+  --line: #e3d6c4;
+  --accent: #8d2f2a;
+  --accent-soft: #f6e4df;
+  --ok-bg: #e5f0e4;
+  --ok-ink: #1a4630;
+  --serif: "Literata", "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
+  --sans: "Source Sans 3", "Segoe UI", sans-serif;
+  --read: 1.125rem;
+  --measure: 40rem;
+  --header: 0px;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #14110e;
+  --bg-elev: #211c18;
+  --ink: #f4ecdf;
+  --ink-soft: #cbbba6;
+  --line: #3c332c;
+  --accent: #e6b15c;
+  --accent-soft: #3a2c1c;
+  --ok-bg: #1b2c23;
+  --ok-ink: #d7eedd;
+}
+
+html[data-font="sm"] { --read: 1rem; }
+html[data-font="md"] { --read: 1.125rem; }
+html[data-font="lg"] { --read: 1.3125rem; }
+html[data-font="xl"] { --read: 1.5rem; }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 480px at 10% -10%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 60%),
+    var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+}
+
+body.okuma {
+  padding-bottom: calc(4.75rem + env(safe-area-inset-bottom));
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: absolute;
+  left: 0.75rem;
+  top: -3rem;
+  background: var(--accent);
+  color: var(--bg);
+  padding: 0.5rem 0.8rem;
+  z-index: 50;
+}
+
+.skip:focus {
+  top: 0.75rem;
+}
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.ust {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0.7rem 1rem 0.2rem;
+}
+
+.marka {
+  margin-right: auto;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.45rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.marka span {
+  color: var(--accent);
+}
+
+.ana-nav {
+  display: flex;
+  gap: 0.25rem 1.1rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0.15rem 1rem 0.55rem;
+  overflow-x: auto;
+}
+
+.ana-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  white-space: nowrap;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 0.98rem;
+}
+
+.ana-nav a[aria-current="page"] {
+  color: var(--ink);
+  box-shadow: inset 0 -2px 0 var(--accent);
+}
+
+.tema,
+.yazi-boyu button,
+.okuma-bar a,
+.okuma-bar .nav-bos {
+  font: inherit;
+  color: var(--ink);
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  min-height: 44px;
+  padding: 0.35rem 0.9rem;
+  text-decoration: none;
+}
+
+.tema {
+  cursor: pointer;
+}
+
+.tema:hover,
+.yazi-boyu button:hover,
+.okuma-bar a:hover {
+  border-color: var(--accent);
+}
+
+.site-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 2rem 1rem 2.5rem;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--line);
+}
+
+.site-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+}
+
+.site-footer a {
+  color: inherit;
+}
+
+.site-footer p {
+  margin: 0.8rem 0 0;
+  max-width: 40rem;
+}
+
+.sarmal {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 2.5rem;
+}
+
+.sayfa,
+.kunye,
+.bolum-bas {
+  max-width: var(--measure);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  margin: 0.2rem 0 0.6rem;
+}
+
+.giris,
+.ozet {
+  color: var(--ink-soft);
+  font-size: 1.125rem;
+  max-width: 38rem;
+}
+
+.kirinti {
+  margin: 0 0 1rem;
+}
+
+.kirinti ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.kirinti li:not(:last-child)::after {
+  content: "/";
+  margin-left: 0.35rem;
+  color: var(--line);
+}
+
+.kirinti a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.kirinti a:hover {
+  text-decoration: underline;
+}
+
+.kartlar,
+.eserler {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.kartlar a,
+.eserler a,
+.bolum-liste a {
+  display: block;
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem 1.05rem;
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 4%, transparent);
+}
+
+.kartlar a:hover,
+.eserler a:hover,
+.bolum-liste a:hover {
+  border-color: var(--accent);
+}
+
+.kicker {
+  display: block;
+  color: var(--accent);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.kartlar strong,
+.eserler strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  margin-bottom: 0.2rem;
+}
+
+.kartlar span,
+.eserler span,
+.bolum-liste span {
+  color: var(--ink-soft);
+}
+
+.kunye {
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem 1rem 1.1rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.kunye h2,
+.serbest h3 {
+  margin: 0 0 0.8rem;
+  font-size: 1.25rem;
+}
+
+.kunye dl {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0;
+}
+
+.kunye dl div {
+  display: grid;
+  grid-template-columns: minmax(9rem, 13rem) 1fr;
+  gap: 0.2rem 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.kunye dt {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.kunye dd {
+  margin: 0;
+}
+
+.serbest {
+  margin-top: 1rem;
+  background: var(--ok-bg);
+  color: var(--ok-ink);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+}
+
+.serbest p,
+.uyari,
+.ilk-yayim {
+  margin: 0.35rem 0 0;
+}
+
+.uyari {
+  margin-top: 0.9rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 12px;
+  background: var(--accent-soft);
+}
+
+.ilk-yayim {
+  margin-top: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.bolum-liste {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.bolum-bas .yazar {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.bolum {
+  font-family: var(--serif);
+  font-size: var(--read);
+  line-height: 1.75;
+  max-width: var(--measure);
+  overflow-wrap: break-word;
+}
+
+.bolum .duz,
+.bolum .konusma,
+.sayfa p {
+  margin: 0 0 1em;
+}
+
+.bolum .konusma {
+  padding-left: 0.15rem;
+}
+
+.bolum .ithaf {
+  text-align: end;
+  color: var(--ink-soft);
+  margin-bottom: 1.4rem;
+}
+
+.bolum hr.ayrac {
+  border: 0;
+  height: auto;
+  margin: 1.8rem 0;
+  text-align: center;
+}
+
+.bolum hr.ayrac::before {
+  content: "* * *";
+  letter-spacing: 0.45em;
+  color: var(--accent);
+  font-size: 0.95rem;
+}
+
+.bolum .sozluk {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--sans);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.bolum .sozluk h2 {
+  font-size: 1.25rem;
+}
+
+.bolum .sozluk ol {
+  padding-left: 1.2rem;
+}
+
+.bolum .glos {
+  font-family: var(--sans);
+  font-size: 0.72em;
+  line-height: 0;
+}
+
+.bolum .glos a {
+  text-decoration: none;
+  padding: 0 0.12em;
+}
+
+.sayfa {
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+.sayfa h2 {
+  font-size: 1.45rem;
+  margin: 1.8rem 0 0.6rem;
+}
+
+.sayfa ul,
+.sayfa ol {
+  padding-left: 1.2rem;
+}
+
+.sayfa li {
+  margin: 0.35rem 0;
+}
+
+.kaynak-liste {
+  list-style: none;
+  padding: 0;
+}
+
+.kaynak-liste li {
+  margin: 0 0 1rem;
+}
+
+.okuma-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.45rem 0.7rem calc(0.45rem + env(safe-area-inset-bottom));
+  background: color-mix(in srgb, var(--bg-elev) 94%, transparent);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--line);
+}
+
+.okuma-bar .onceki {
+  justify-self: start;
+}
+
+.okuma-bar .sonraki {
+  justify-self: end;
+}
+
+.okuma-bar .nav-bos {
+  color: var(--ink-soft);
+  background: transparent;
+}
+
+.yazi-boyu {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.yazi-boyu button {
+  min-width: 44px;
+  padding-inline: 0.7rem;
+  cursor: pointer;
+}
+
+.yazi-boyu button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.bos {
+  color: var(--ink-soft);
+}
+
+@media (max-width: 40rem) {
+  .kunye dl div {
+    grid-template-columns: 1fr;
+  }
+
+  .okuma-bar a,
+  .okuma-bar .nav-bos {
+    padding-inline: 0.7rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .bolum {
+    border-left: 1px solid color-mix(in srgb, var(--accent) 45%, var(--line));
+    padding-left: 1.4rem;
+  }
+}

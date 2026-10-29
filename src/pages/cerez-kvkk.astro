@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+
+const baslik = 'Çerez ve KVKK';
+---
+
+<Base
+  title={baslik}
+  description="sanalbook çerez kullanmaz. Tema ve yazı boyu yalnızca tarayıcının localStorage alanındadır."
+>
+  <div class="sarmal">
+    <article class="sayfa">
+      <h1>{baslik}</h1>
+      <p>
+        Bu metin, sanalbook okuma sitesinin aydınlatma notudur. Sitede üyelik yoktur; ad,
+        e-posta veya profil istenmez.
+      </p>
+      <h2>Çerez yok</h2>
+      <p>
+        sanalbook çerez bırakmaz. Reklam, ölçüm aracı ve üçüncü taraf betiği yoktur. Yazı
+        tipleri sitenin kendi dosyalarıdır. Tarayıcınız yazı tipi için başka bir sunucuya
+        bağlanmaz.
+      </p>
+      <h2>Bu cihazda kalanlar</h2>
+      <p>
+        Tema ve yazı boyu, tarayıcınızın <code>localStorage</code> alanında durabilir. İki
+        anahtar vardır:
+      </p>
+      <ul>
+        <li><code>sanalbook-theme</code> — açık veya koyu tema</li>
+        <li><code>sanalbook-font</code> — yazı boyu</li>
+      </ul>
+      <p>
+        Kayıtlı bir tema yoksa site, işletim sisteminizin <code>prefers-color-scheme</code>
+        tercihini izler. Bir kez seçim yapınca o seçim hatırlanır. Bu değerler sanalbook
+        sunucusuna gönderilmez. Tarayıcı ayarlarından site verisini silince kaybolur.
+      </p>
+      <h2>Kişisel veri</h2>
+      <p>
+        6698 sayılı Kişisel Verilerin Korunması Kanunu bakımından sanalbook'un elinde bir
+        üyelik veya kimlik dosyası yoktur, çünkü bu bilgiler hiç toplanmaz. Sayfaları sunan
+        barındırıcı, bir web sunucusunun olağan bağlantı kayıtlarını tutabilir. sanalbook bu
+        kayıtları reklam veya profil için kullanmaz; sitede analitik aracı kurulmamıştır.
+      </p>
+      <p>
+        Silinmesini isteyeceğiniz bir sanalbook kaydı oluşmaz. Cihazınızdaki tema ve yazı
+        boyu kaydını kendiniz silebilirsiniz.
+      </p>
+    </article>
+  </div>
+</Base>

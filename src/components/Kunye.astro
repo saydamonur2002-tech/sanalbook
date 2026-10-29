@@ -1,0 +1,59 @@
+---
+import { tarihYaz } from '../lib/katalog';
+
+interface Props {
+  title: string;
+  author: string;
+  authorDeathYear: number;
+  translator: string | null;
+  translatorDeathYear: number | null;
+  sourceName: string;
+  sourceUrl: string;
+  sourceRevision: number;
+  sourceRetrieved: string;
+  originalPublication: string | null;
+  sourceNote?: string;
+  gerekce: string;
+}
+
+const eser = Astro.props;
+---
+
+<section class="kunye" aria-labelledby="kunye-baslik">
+  <h2 id="kunye-baslik">Eser künyesi</h2>
+  <dl>
+    <div>
+      <dt>Kaynak metin</dt>
+      <dd>
+        <a href={eser.sourceUrl}>
+          {eser.sourceName} — {eser.title}, sürüm {eser.sourceRevision}
+        </a>
+        <span class="bos"> ({tarihYaz(eser.sourceRetrieved)})</span>
+      </dd>
+    </div>
+    <div>
+      <dt>Çevirmen/aktaran</dt>
+      <dd>{eser.translator ?? 'yok'}</dd>
+    </div>
+    <div>
+      <dt>Yazarın ölüm yılı</dt>
+      <dd>{eser.authorDeathYear} <span class="bos">({eser.author})</span></dd>
+    </div>
+    <div>
+      <dt>Çevirmenin ölüm yılı</dt>
+      <dd>{eser.translatorDeathYear ?? 'yok'}</dd>
+    </div>
+  </dl>
+  <div class="serbest">
+    <h3>Türkiye'de serbest</h3>
+    <p>{eser.gerekce}</p>
+  </div>
+  {
+    eser.originalPublication && (
+      <p class="ilk-yayim">
+        <strong>İlk yayım.</strong> {eser.originalPublication}
+      </p>
+    )
+  }
+  {eser.sourceNote && <p class="uyari">{eser.sourceNote}</p>}
+</section>

@@ -1,0 +1,74 @@
+---
+import { render } from 'astro:content';
+import Base from '../../../../layouts/Base.astro';
+import Kirinti from '../../../../components/Kirinti.astro';
+import OkumaBar from '../../../../components/OkumaBar.astro';
+import { katalogYukle, type CozulmusBolum, type CozulmusEser } from '../../../../lib/katalog';
+
+export async function getStaticPaths() {
+  const { eserler } = await katalogYukle();
+  return eserler.flatMap((eser) =>
+    eser.bolumler.map((bolum, index) => ({
+      params: {
+        ulke: eser.ulke.slug,
+        kategori: eser.kategori.slug,
+        eser: eser.data.slug,
+        bolum: String(bolum.order),
+      },
+      props: {
+        eser,
+        bolum,
+        onceki: eser.bolumler[index - 1] ?? null,
+        sonraki: eser.bolumler[index + 1] ?? null,
+      },
+    })),
+  );
+}
+
+interface Props {
+  eser: CozulmusEser;
+  bolum: CozulmusBolum;
+  onceki: CozulmusBolum | null;
+  sonraki: CozulmusBolum | null;
+}
+
+const { eser, bolum, onceki, sonraki } = Astro.props;
+const { Content } = await render(bolum.entry);
+const ayniBaslik = bolum.title === eser.data.title;
+const baslik = ayniBaslik ? eser.data.title : bolum.title;
+---
+
+<Base
+  title={baslik}
+  description={`${eser.data.title}, ${eser.data.author}. Bölüm ${bolum.order}.`}
+  okuma
+>
+  <div class="sarmal">
+    <Kirinti
+      ogeler={[
+        { ad: 'Ülkeler', href: '/' },
+        { ad: eser.ulke.name, href: `/${eser.ulke.slug}` },
+        { ad: eser.kategori.name, href: `/${eser.ulke.slug}/${eser.kategori.slug}` },
+        { ad: eser.data.title, href: eser.href },
+        { ad: ayniBaslik ? `Bölüm ${bolum.order}` : bolum.title },
+      ]}
+    />
+    <header class="bolum-bas">
+      <p class="kicker">
+        {eser.bolumler.length === 1
+          ? 'Tek bölüm'
+          : `Bölüm ${bolum.order} / ${eser.bolumler.length}`}
+      </p>
+      <h1>{baslik}</h1>
+      <p class="yazar">
+        {eser.data.author}
+        <span class="bos"> · </span>
+        <a href={eser.href}>Eser künyesi</a>
+      </p>
+    </header>
+    <article class="bolum">
+      <Content />
+    </article>
+  </div>
+  <OkumaBar onceki={onceki} sonraki={sonraki} />
+</Base>

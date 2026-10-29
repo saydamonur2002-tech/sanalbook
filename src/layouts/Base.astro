@@ -1,0 +1,127 @@
+---
+import '@fontsource/literata/400.css';
+import '@fontsource/literata/400-italic.css';
+import '@fontsource/literata/700.css';
+import '@fontsource/source-sans-3/400.css';
+import '@fontsource/source-sans-3/600.css';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  okuma?: boolean;
+}
+
+const { title, description, okuma = false } = Astro.props;
+const tamBaslik = title === 'sanalbook' ? 'sanalbook' : `${title} · sanalbook`;
+const yol = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const baglantilar = [
+  { href: '/hakkinda', ad: 'Hakkında' },
+  { href: '/telif', ad: 'Telif ve Kaynaklar' },
+  { href: '/cerez-kvkk', ad: 'Çerez ve KVKK' },
+];
+---
+
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{tamBaslik}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f4efe6" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script is:inline>
+      (function () {
+        try {
+          var tema = localStorage.getItem('sanalbook-theme');
+          if (tema !== 'light' && tema !== 'dark') {
+            tema = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          }
+          document.documentElement.dataset.theme = tema;
+          var yazi = localStorage.getItem('sanalbook-font');
+          document.documentElement.dataset.font =
+            yazi === 'sm' || yazi === 'md' || yazi === 'lg' || yazi === 'xl' ? yazi : 'md';
+          var renk = document.querySelector('meta[name="theme-color"]');
+          if (renk) renk.setAttribute('content', tema === 'dark' ? '#14110e' : '#f4efe6');
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class={okuma ? 'okuma' : undefined}>
+    <a class="skip" href="#icerik">İçeriğe geç</a>
+    <header class="site-header">
+      <div class="ust">
+        <a class="marka" href="/">sanal<span>book</span></a>
+        <button type="button" class="tema" id="tema-dugmesi" aria-pressed="false">
+          <span id="tema-yazi">Koyu tema</span>
+        </button>
+      </div>
+      <nav class="ana-nav" aria-label="Site">
+        {
+          baglantilar.map((bag) => (
+            <a href={bag.href} aria-current={yol === bag.href ? 'page' : undefined}>
+              {bag.ad}
+            </a>
+          ))
+        }
+      </nav>
+    </header>
+    <main id="icerik">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <nav aria-label="Alt">
+        <a href="/hakkinda">Hakkında</a>
+        <a href="/telif">Telif ve Kaynaklar</a>
+        <a href="/cerez-kvkk">Çerez ve KVKK</a>
+      </nav>
+      <p>Üyelik, reklam ve analitik yok. Tema ile yazı boyu yalnız bu cihazda durur.</p>
+    </footer>
+    <script is:inline>
+      (function () {
+        var anahtar = 'sanalbook-theme';
+        var dugme = document.getElementById('tema-dugmesi');
+        var yazi = document.getElementById('tema-yazi');
+        var renk = document.querySelector('meta[name="theme-color"]');
+        var renkler = { light: '#f4efe6', dark: '#14110e' };
+
+        function kayitli() {
+          try {
+            var deger = localStorage.getItem(anahtar);
+            return deger === 'light' || deger === 'dark' ? deger : null;
+          } catch (e) {
+            return null;
+          }
+        }
+
+        function uygula(tema) {
+          document.documentElement.dataset.theme = tema;
+          var koyu = tema === 'dark';
+          if (dugme) dugme.setAttribute('aria-pressed', koyu ? 'true' : 'false');
+          if (yazi) yazi.textContent = koyu ? 'Açık tema' : 'Koyu tema';
+          if (renk) renk.setAttribute('content', renkler[tema]);
+        }
+
+        uygula(document.documentElement.dataset.theme || 'light');
+
+        if (dugme) {
+          dugme.addEventListener('click', function () {
+            var sonraki = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+            try {
+              localStorage.setItem(anahtar, sonraki);
+            } catch (e) {}
+            uygula(sonraki);
+          });
+        }
+
+        var sorgu = window.matchMedia('(prefers-color-scheme: dark)');
+        sorgu.addEventListener('change', function (olay) {
+          if (kayitli()) return;
+          uygula(olay.matches ? 'dark' : 'light');
+        });
+      })();
+    </script>
+  </body>
+</html>

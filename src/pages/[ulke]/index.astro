@@ -1,0 +1,43 @@
+---
+import Base from '../../layouts/Base.astro';
+import Kirinti from '../../components/Kirinti.astro';
+import { katalogYukle } from '../../lib/katalog';
+
+export async function getStaticPaths() {
+  const { ulkeler } = await katalogYukle();
+  return ulkeler.map((ulke) => ({
+    params: { ulke: ulke.data.slug },
+    props: { ulke },
+  }));
+}
+
+const { ulke } = Astro.props;
+---
+
+<Base title={ulke.data.name} description={ulke.data.description}>
+  <div class="sarmal">
+    <Kirinti ogeler={[{ ad: 'Ülkeler', href: '/' }, { ad: ulke.data.name }]} />
+    <p class="kicker">Ülke</p>
+    <h1>{ulke.data.name}</h1>
+    <p class="ozet">{ulke.data.description}</p>
+    {
+      ulke.kategoriler.length === 0 ? (
+        <p class="bos">Bu ülkede henüz kategori yok.</p>
+      ) : (
+        <ul class="kartlar">
+          {ulke.kategoriler.map((kategori) => (
+            <li>
+              <a href={kategori.href}>
+                <span class="kicker">Kategori</span>
+                <strong>{kategori.data.name}</strong>
+                <span>
+                  {kategori.data.description} {kategori.eserler.length} eser.
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </div>
+</Base>

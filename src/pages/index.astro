@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import { katalogYukle } from '../lib/katalog';
+
+const { ulkeler } = await katalogYukle();
+---
+
+<Base
+  title="sanalbook"
+  description="Türkiye'de koruma süresi dolmuş edebî eserler. Ülke, kategori, eser ve bölüm sırasıyla okunur."
+>
+  <div class="sarmal">
+    <p class="kicker">Telifsiz okuma</p>
+    <h1>sanalbook</h1>
+    <p class="giris">
+      Koruma süresi Türkiye'de dolmuş eserler. Önce ülke, sonra kategori, eser ve bölüm.
+      Üyelik yok, reklam yok.
+    </p>
+    <ul class="kartlar">
+      {
+        ulkeler.map((ulke) => (
+          <li>
+            <a href={ulke.href}>
+              <span class="kicker">Ülke</span>
+              <strong>{ulke.data.name}</strong>
+              <span>{ulke.data.description}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Base>
