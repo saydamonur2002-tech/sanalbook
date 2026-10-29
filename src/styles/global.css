@@ -507,6 +507,14 @@ h1 {
   border-top: 1px solid var(--line);
 }
 
+.okuma-bar .onceki,
+.okuma-bar .sonraki {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .okuma-bar .onceki {
   justify-self: start;
 }

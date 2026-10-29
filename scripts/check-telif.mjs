@@ -51,6 +51,8 @@ const belirtilmemis = telifDenetle(
 );
 assert.equal(belirtilmemis.serbest, true);
 assert.equal(belirtilmemis.gerekce, telifDenetle(ornek, 2026).gerekce);
+assert.match(belirtilmemis.gerekce, /Latin harflerine aktaranı kaynakta belirtilmemiştir/);
+assert.doesNotMatch(belirtilmemis.gerekce, /Türkçe özgün/);
 assert.equal(
   telifDenetle({ ...ornek, translator: 'belirtilmemiş', translatorDeathYear: 1920 }, 2026).serbest,
   false,
