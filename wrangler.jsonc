@@ -1,0 +1,13 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "sanalbook",
+  // Statik site. Worker betiği yok; `main` alanı bilinçli olarak boş.
+  "compatibility_date": "2026-10-29",
+  "assets": {
+    "directory": "./dist",
+    // Astro `directory` çıktısı klasör/index.html üretir. /turkiye, /turkiye/ adresine yönlenir.
+    "html_handling": "auto-trailing-slash",
+    // Eşleşmeyen istek dist/404.html dosyasını 404 durumuyla döner.
+    "not_found_handling": "404-page"
+  }
+}
