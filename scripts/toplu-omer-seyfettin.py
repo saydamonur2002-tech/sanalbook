@@ -527,8 +527,10 @@ def fazlaliklari_sil(kalan: set[str]) -> None:
         klasor.rmdir()
 
 
-def yaz(secilen: list[dict]) -> None:
-    fazlaliklari_sil({eser["slug"] for eser in secilen})
+def yaz(secilen: list[dict], dokunulmaz: set[str] | None = None) -> None:
+    korunan = set(dokunulmaz or ())
+    korunan.update(eser["slug"] for eser in secilen)
+    fazlaliklari_sil(korunan)
     for eser in secilen:
         klasor = KOK / "src" / "content" / "chapters" / eser["slug"]
         klasor.mkdir(parents=True, exist_ok=True)
@@ -572,22 +574,43 @@ def yaz(secilen: list[dict]) -> None:
         )
 
 
-def supheli_yaz(satirlar: list[dict]) -> None:
+def yayindaki() -> tuple[set[str], set[str], int]:
+    basliklar = set(VAR_OLAN)
+    kisalar = set(VAR_OLAN_KISA)
+    en_buyuk = 0
+    for dosya in (KOK / "src" / "content" / "works").glob("*.json"):
+        kayit = json.loads(dosya.read_text(encoding="utf-8"))
+        basliklar.add(kayit["title"])
+        kisalar.add(kayit["slug"])
+        en_buyuk = max(en_buyuk, int(kayit["order"]))
+    return basliklar, kisalar, en_buyuk
+
+
+def supheli_yaz(satirlar: list[dict]) -> list[dict]:
     dizin = KOK / "icerik-kontrol"
     dizin.mkdir(parents=True, exist_ok=True)
-    govde = [
-        "# Ömer Seyfettin — şüpheli metinler",
-        "",
-        "Bu liste yayına alınmadı. Vikikaynak sayfası aşağıdaki nedenle elendi.",
-        "",
-    ]
-    for satir in satirlar:
+    dosya = dizin / "omer-seyfettin-supheli.md"
+    mevcut = dosya.read_text(encoding="utf-8") if dosya.exists() else ""
+    yeni = [satir for satir in satirlar if f"## {satir['title']}\n" not in mevcut]
+    if not mevcut:
+        govde = [
+            "# Ömer Seyfettin — şüpheli metinler",
+            "",
+            "Bu liste yayına alınmadı. Vikikaynak sayfası aşağıdaki nedenle elendi.",
+            "",
+        ]
+    else:
+        govde = [mevcut.rstrip(), ""]
+    if not yeni:
+        return []
+    for satir in yeni:
         govde.append(f"## {satir['title']}")
         govde.append(f"- Bağlantı: {satir['url']}")
         for neden in satir["nedenler"]:
             govde.append(f"- Neden: {neden}")
         govde.append("")
-    (dizin / "omer-seyfettin-supheli.md").write_text("\n".join(govde), encoding="utf-8")
+    dosya.write_text("\n".join(govde).rstrip() + "\n", encoding="utf-8")
+    return yeni
 
 
 def main() -> None:
@@ -598,9 +621,10 @@ def main() -> None:
     print(f"listed={len(adaylar)}", flush=True)
     hazir = []
     supheli = []
-    kullanilan_kisa: set[str] = set(VAR_OLAN_KISA)
+    basliklar, kisalar, son_sira = yayindaki()
+    kullanilan_kisa: set[str] = set(kisalar)
     for hedef, gorunen in adaylar:
-        if gorunen in VAR_OLAN or hedef in VAR_OLAN:
+        if gorunen in basliklar or hedef in basliklar:
             continue
         baslik = gorunen
         try:
@@ -675,13 +699,14 @@ def main() -> None:
         print(f"aday {baslik} puan={puan(viki, yayim)} kelime={kelime}", flush=True)
 
     hazir.sort(key=lambda eser: (-eser["puan"], eser["title"]))
-    secilen = hazir[:AZAMI]
-    for indeks, eser in enumerate(secilen, start=6):
+    secilen = hazir
+    for indeks, eser in enumerate(secilen, start=son_sira + 1):
         eser["order"] = indeks
         eser["bolumler"] = parcalara_bol(eser["bloklar"])
         eser["bolum_kelime"] = [sum(kelime_say(b) for b in grup) for grup in eser["bolumler"]]
-    yaz(secilen)
-    supheli_yaz(supheli)
+    yaz(secilen, dokunulmaz=kisalar)
+    yeni_supheli = supheli_yaz(supheli)
+    print(f"YENI_SUPHELI {len(yeni_supheli)}", flush=True)
     ozet = {
         "eklenen": [
             {
@@ -709,6 +734,7 @@ def main() -> None:
             if len(eser["bolumler"]) > 1
         ],
         "elenen_aday": len(hazir) - len(secilen),
+        "yeni_supheli": [satir["title"] for satir in yeni_supheli],
     }
     (ONBELLEK / "ozet.json").write_text(json.dumps(ozet, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"EKLENDI {len(secilen)} SUPHELI {len(supheli)} BOLUNEN {len(ozet['bolunen'])}", flush=True)
