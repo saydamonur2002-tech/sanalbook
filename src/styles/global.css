@@ -410,6 +410,18 @@ h1 {
   margin: 0 0 1em;
 }
 
+.bolum pre.siir {
+  margin: 0 0 1.15em;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: var(--serif);
+  font-size: inherit;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
 .bolum .konusma {
   padding-left: 0.15rem;
 }
