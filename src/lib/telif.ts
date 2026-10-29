@@ -51,13 +51,20 @@ export function telifDenetle(eser: EserHakki, bugun = new Date().getFullYear()):
   if (yazarYilHatasi) hatalar.push(`${eser.title}: ${yazarYilHatasi}`);
 
   const cevirmen = eser.translator;
-  const cevirmenVar = cevirmen !== null;
+  // Osmanlıca baskıdan aktarıldığı hâlde aktaran adı yoksa künye "belirtilmemiş" yazar.
+  // Bu bir kişi adı değildir; süre hesabı Kaşağı ile aynı formülü kullanır.
+  const belirtilmemis =
+    cevirmen !== null && cevirmen.trim().toLocaleLowerCase('tr-TR') === 'belirtilmemiş';
+  const cevirmenVar = cevirmen !== null && !belirtilmemis;
   if (cevirmen !== null && cevirmen.trim() === '') {
     hatalar.push(
       `${eser.title}: çevirmen adı boş. Özgün Türkçe metinde çevirmen null bırakılır ve künyede "yok" görünür.`,
     );
   }
-  if (!cevirmenVar && eser.translatorDeathYear !== null) {
+  if (belirtilmemis && eser.translatorDeathYear !== null) {
+    hatalar.push(`${eser.title}: aktaran "belirtilmemiş" iken çevirmen ölüm yılı dolu olamaz.`);
+  }
+  if (!cevirmenVar && !belirtilmemis && eser.translatorDeathYear !== null) {
     hatalar.push(`${eser.title}: çevirmen yokken çevirmen ölüm yılı dolu olamaz.`);
   }
   if (cevirmenVar && eser.translatorDeathYear === null) {

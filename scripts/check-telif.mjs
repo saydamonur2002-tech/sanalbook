@@ -45,6 +45,17 @@ assert.equal(
 );
 assert.equal(telifDenetle({ ...ornek, authorDeathYear: 2027 }, 2026).serbest, false);
 
+const belirtilmemis = telifDenetle(
+  { ...ornek, translator: 'belirtilmemiş', translatorDeathYear: null },
+  2026,
+);
+assert.equal(belirtilmemis.serbest, true);
+assert.equal(belirtilmemis.gerekce, telifDenetle(ornek, 2026).gerekce);
+assert.equal(
+  telifDenetle({ ...ornek, translator: 'belirtilmemiş', translatorDeathYear: 1920 }, 2026).serbest,
+  false,
+);
+
 function yuru(dizin) {
   const sonuc = [];
   for (const ad of readdirSync(dizin)) {

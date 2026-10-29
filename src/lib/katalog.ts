@@ -1,5 +1,8 @@
+import { readFileSync } from 'node:fs';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { telifDenetle } from './telif';
+
+const DAKIKADA_KELIME = 200;
 
 const AYIRILMIS_KISA_ADLAR = new Set(['hakkinda', 'telif', 'cerez-kvkk']);
 
@@ -40,6 +43,20 @@ export interface CozulmusEser {
   bolumler: CozulmusBolum[];
   href: string;
   gerekce: string;
+  kelime: number;
+  dakika: number;
+}
+
+function bolumGovdesi(entry: CollectionEntry<'chapters'>): string {
+  if (typeof entry.body === 'string' && entry.body.trim()) return entry.body;
+  const dosya = 'filePath' in entry && typeof entry.filePath === 'string' ? entry.filePath : '';
+  if (!dosya) return '';
+  return readFileSync(dosya, 'utf8').replace(/^---[\s\S]*?---/, '');
+}
+
+export function kelimeSayisi(markdown: string): number {
+  const yalin = markdown.replace(/<[^>]+>/g, ' ');
+  return yalin.split(/\s+/).filter(Boolean).length;
 }
 
 export async function katalogYukle() {
@@ -96,6 +113,14 @@ export async function katalogYukle() {
     }
 
     const href = eserYolu(ulke.data.slug, kategori.data.slug, eser.data.slug);
+    const bolumler = kendiBolumleri.map((bolum) => ({
+      id: bolum.id,
+      entry: bolum,
+      title: bolum.data.title,
+      order: bolum.data.order,
+      href: bolumYolu(ulke.data.slug, kategori.data.slug, eser.data.slug, bolum.data.order),
+    }));
+    const kelime = bolumler.reduce((toplam, bolum) => toplam + kelimeSayisi(bolumGovdesi(bolum.entry)), 0);
     return {
       id: eser.id,
       entry: eser,
@@ -104,13 +129,9 @@ export async function katalogYukle() {
       kategori: { id: kategori.id, ...kategori.data },
       href,
       gerekce: sonuc.gerekce,
-      bolumler: kendiBolumleri.map((bolum) => ({
-        id: bolum.id,
-        entry: bolum,
-        title: bolum.data.title,
-        order: bolum.data.order,
-        href: bolumYolu(ulke.data.slug, kategori.data.slug, eser.data.slug, bolum.data.order),
-      })),
+      bolumler,
+      kelime,
+      dakika: Math.max(1, Math.round(kelime / DAKIKADA_KELIME)),
     };
   });
 
