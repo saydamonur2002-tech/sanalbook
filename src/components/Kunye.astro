@@ -13,6 +13,7 @@ interface Props {
   sourceRetrieved: string;
   originalPublication: string | null;
   sourceNote?: string;
+  seri?: string | null;
   gerekce: string;
 }
 
@@ -43,6 +44,14 @@ const eser = Astro.props;
       <dt>Çevirmenin ölüm yılı</dt>
       <dd>{eser.translatorDeathYear ?? 'yok'}</dd>
     </div>
+    {
+      eser.seri !== undefined && (
+        <div>
+          <dt>Seri</dt>
+          <dd>{eser.seri && eser.seri.trim() ? eser.seri : '—'}</dd>
+        </div>
+      )
+    }
   </dl>
   <div class="serbest">
     <h3>Türkiye'de serbest</h3>

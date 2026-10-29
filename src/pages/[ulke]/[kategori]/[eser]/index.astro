@@ -35,6 +35,9 @@ const ilk = eser.bolumler[0];
     />
     <p class="kicker">{eser.data.author}</p>
     <h1>{eser.data.title}</h1>
+    <p class="ozet">
+      {eser.bolumler.length} bölüm · yaklaşık {eser.dakika} dakika
+    </p>
     <Kunye {...eser.data} gerekce={eser.gerekce} />
     <h2>Bölümler</h2>
     <ul class="bolum-liste">

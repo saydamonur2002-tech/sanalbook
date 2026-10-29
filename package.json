@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev --host 127.0.0.1",
     "check:telif": "node --experimental-strip-types scripts/check-telif.mjs",
-    "build": "npm run check:telif && astro build",
+    "sitemap": "node scripts/sitemap.mjs",
+    "build": "npm run check:telif && npm run sitemap && astro build",
     "preview": "astro preview --host 127.0.0.1",
     "deploy": "wrangler deploy",
     "check": "astro check"

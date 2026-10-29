@@ -50,6 +50,8 @@ const works = defineCollection({
       sourceRetrieved: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
       originalPublication: z.string().nullable(),
       sourceNote: z.string().min(1).optional(),
+      /** Boş bırakılır. Seri gruplaması yapılmaz. */
+      seri: z.string().nullable().optional(),
     })
     .superRefine((eser, ctx) => {
       const sonuc = telifDenetle(eser);
