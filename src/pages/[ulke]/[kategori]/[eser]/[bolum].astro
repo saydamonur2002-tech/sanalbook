@@ -5,31 +5,77 @@ import Kirinti from '../../../../components/Kirinti.astro';
 import OkumaBar from '../../../../components/OkumaBar.astro';
 import { katalogYukle, type CozulmusBolum, type CozulmusEser } from '../../../../lib/katalog';
 
+interface Komsu {
+  title: string;
+  href: string;
+  etiket: string;
+}
+
 export async function getStaticPaths() {
   const { eserler } = await katalogYukle();
-  return eserler.flatMap((eser) =>
-    eser.bolumler.map((bolum, index) => ({
-      params: {
-        ulke: eser.ulke.slug,
-        kategori: eser.kategori.slug,
-        eser: eser.data.slug,
-        bolum: String(bolum.order),
-      },
-      props: {
-        eser,
-        bolum,
-        onceki: eser.bolumler[index - 1] ?? null,
-        sonraki: eser.bolumler[index + 1] ?? null,
-      },
-    })),
-  );
+
+  function bolumKomsu(bolum: CozulmusBolum | null, yon: 'onceki' | 'sonraki'): Komsu | null {
+    if (!bolum) return null;
+    return {
+      title: bolum.title,
+      href: bolum.href,
+      etiket: yon === 'onceki' ? 'Önceki' : 'Sonraki',
+    };
+  }
+
+  function eserKomsu(komsu: CozulmusEser | null): Komsu | null {
+    if (!komsu) return null;
+    return {
+      title: komsu.data.title,
+      href: komsu.href,
+      etiket: komsu.data.title,
+    };
+  }
+
+  const gruplar = new Map<string, CozulmusEser[]>();
+  for (const eser of eserler) {
+    const liste = gruplar.get(eser.kategori.id) ?? [];
+    liste.push(eser);
+    gruplar.set(eser.kategori.id, liste);
+  }
+  for (const liste of gruplar.values()) {
+    liste.sort((a, b) => a.data.order - b.data.order);
+  }
+
+  return eserler.flatMap((eser) => {
+    const liste = gruplar.get(eser.kategori.id) ?? [];
+    const sira = liste.findIndex((aday) => aday.id === eser.id);
+    const oncekiEser = liste[sira - 1] ?? null;
+    const sonrakiEser = liste[sira + 1] ?? null;
+    return eser.bolumler.map((bolum, index) => {
+      const tekBolum = eser.bolumler.length === 1;
+      return {
+        params: {
+          ulke: eser.ulke.slug,
+          kategori: eser.kategori.slug,
+          eser: eser.data.slug,
+          bolum: String(bolum.order),
+        },
+        props: {
+          eser,
+          bolum,
+          onceki: tekBolum
+            ? eserKomsu(oncekiEser)
+            : bolumKomsu(eser.bolumler[index - 1] ?? null, 'onceki'),
+          sonraki: tekBolum
+            ? eserKomsu(sonrakiEser)
+            : bolumKomsu(eser.bolumler[index + 1] ?? null, 'sonraki'),
+        },
+      };
+    });
+  });
 }
 
 interface Props {
   eser: CozulmusEser;
   bolum: CozulmusBolum;
-  onceki: CozulmusBolum | null;
-  sonraki: CozulmusBolum | null;
+  onceki: Komsu | null;
+  sonraki: Komsu | null;
 }
 
 const { eser, bolum, onceki, sonraki } = Astro.props;

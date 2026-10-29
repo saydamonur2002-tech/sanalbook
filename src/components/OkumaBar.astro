@@ -2,6 +2,7 @@
 interface Komsu {
   title: string;
   href: string;
+  etiket: string;
 }
 
 interface Props {
@@ -15,8 +16,8 @@ const { onceki, sonraki } = Astro.props;
 <div class="okuma-bar">
   {
     onceki ? (
-      <a class="onceki" href={onceki.href} rel="prev">
-        ← <span class="sr">{onceki.title}. </span>Önceki
+      <a class="onceki" href={onceki.href} rel="prev" title={onceki.title}>
+        ← {onceki.etiket !== onceki.title && <span class="sr">{onceki.title}. </span>}{onceki.etiket}
       </a>
     ) : (
       <span class="nav-bos onceki">Önceki yok</span>
@@ -28,8 +29,8 @@ const { onceki, sonraki } = Astro.props;
   </div>
   {
     sonraki ? (
-      <a class="sonraki" href={sonraki.href} rel="next">
-        Sonraki <span class="sr">{sonraki.title}</span> →
+      <a class="sonraki" href={sonraki.href} rel="next" title={sonraki.title}>
+        {sonraki.etiket} {sonraki.etiket !== sonraki.title && <span class="sr">{sonraki.title}. </span>}→
       </a>
     ) : (
       <span class="nav-bos sonraki">Sonraki yok</span>
