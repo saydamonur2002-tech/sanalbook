@@ -1,0 +1,78 @@
+---
+interface Komsu {
+  title: string;
+  href: string;
+}
+
+interface Props {
+  onceki: Komsu | null;
+  sonraki: Komsu | null;
+}
+
+const { onceki, sonraki } = Astro.props;
+---
+
+<div class="okuma-bar">
+  {
+    onceki ? (
+      <a class="onceki" href={onceki.href} rel="prev">
+        ← <span class="sr">{onceki.title}. </span>Önceki
+      </a>
+    ) : (
+      <span class="nav-bos onceki">Önceki yok</span>
+    )
+  }
+  <div class="yazi-boyu" role="group" aria-label="Yazı boyu">
+    <button type="button" id="yazi-kucult" aria-label="Yazıyı küçült">A−</button>
+    <button type="button" id="yazi-buyut" aria-label="Yazıyı büyüt">A+</button>
+  </div>
+  {
+    sonraki ? (
+      <a class="sonraki" href={sonraki.href} rel="next">
+        Sonraki <span class="sr">{sonraki.title}</span> →
+      </a>
+    ) : (
+      <span class="nav-bos sonraki">Sonraki yok</span>
+    )
+  }
+</div>
+<p id="yazi-durum" class="sr" aria-live="polite"></p>
+<script is:inline>
+  (function () {
+    var boyutlar = ['sm', 'md', 'lg', 'xl'];
+    var adlar = { sm: 'küçük', md: 'normal', lg: 'büyük', xl: 'çok büyük' };
+    var anahtar = 'sanalbook-font';
+    var kucult = document.getElementById('yazi-kucult');
+    var buyut = document.getElementById('yazi-buyut');
+    var durum = document.getElementById('yazi-durum');
+
+    function simdiki() {
+      var deger = document.documentElement.dataset.font || 'md';
+      return boyutlar.indexOf(deger) === -1 ? 'md' : deger;
+    }
+
+    function uygula(boyut, duyur) {
+      document.documentElement.dataset.font = boyut;
+      try {
+        localStorage.setItem(anahtar, boyut);
+      } catch (e) {}
+      if (kucult) kucult.disabled = boyut === 'sm';
+      if (buyut) buyut.disabled = boyut === 'xl';
+      if (duyur && durum) durum.textContent = 'Yazı boyu ' + adlar[boyut];
+    }
+
+    uygula(simdiki(), false);
+    if (kucult) {
+      kucult.addEventListener('click', function () {
+        var sira = Math.max(0, boyutlar.indexOf(simdiki()) - 1);
+        uygula(boyutlar[sira], true);
+      });
+    }
+    if (buyut) {
+      buyut.addEventListener('click', function () {
+        var sira = Math.min(boyutlar.length - 1, boyutlar.indexOf(simdiki()) + 1);
+        uygula(boyutlar[sira], true);
+      });
+    }
+  })();
+</script>

@@ -1,0 +1,28 @@
+---
+interface Kirinti {
+  ad: string;
+  href?: string;
+}
+
+interface Props {
+  ogeler: Kirinti[];
+}
+
+const { ogeler } = Astro.props;
+---
+
+<nav class="kirinti" aria-label="Konum">
+  <ol>
+    {
+      ogeler.map((oge, index) => (
+        <li>
+          {oge.href && index < ogeler.length - 1 ? (
+            <a href={oge.href}>{oge.ad}</a>
+          ) : (
+            <span aria-current="page">{oge.ad}</span>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>

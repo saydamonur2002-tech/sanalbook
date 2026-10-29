@@ -1,0 +1,54 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import Kirinti from '../../../../components/Kirinti.astro';
+import Kunye from '../../../../components/Kunye.astro';
+import { katalogYukle } from '../../../../lib/katalog';
+
+export async function getStaticPaths() {
+  const { eserler } = await katalogYukle();
+  return eserler.map((eser) => ({
+    params: {
+      ulke: eser.ulke.slug,
+      kategori: eser.kategori.slug,
+      eser: eser.data.slug,
+    },
+    props: { eser },
+  }));
+}
+
+const { eser } = Astro.props;
+const ilk = eser.bolumler[0];
+---
+
+<Base
+  title={eser.data.title}
+  description={`${eser.data.title}, ${eser.data.author}. Türkiye'de serbest metin.`}
+>
+  <div class="sarmal">
+    <Kirinti
+      ogeler={[
+        { ad: 'Ülkeler', href: '/' },
+        { ad: eser.ulke.name, href: `/${eser.ulke.slug}` },
+        { ad: eser.kategori.name, href: `/${eser.ulke.slug}/${eser.kategori.slug}` },
+        { ad: eser.data.title },
+      ]}
+    />
+    <p class="kicker">{eser.data.author}</p>
+    <h1>{eser.data.title}</h1>
+    <Kunye {...eser.data} gerekce={eser.gerekce} />
+    <h2>Bölümler</h2>
+    <ul class="bolum-liste">
+      {
+        eser.bolumler.map((bolum) => (
+          <li>
+            <a href={bolum.href}>
+              <span class="kicker">Bölüm {bolum.order}</span>
+              <strong>{bolum.title}</strong>
+              {bolum.href === ilk?.href && <span> Okumaya başla</span>}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Base>

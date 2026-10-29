@@ -1,0 +1,82 @@
+---
+import Base from '../layouts/Base.astro';
+import { katalogYukle, tarihYaz } from '../lib/katalog';
+
+const { eserler } = await katalogYukle();
+const baslik = 'Telif ve Kaynaklar';
+---
+
+<Base
+  title={baslik}
+  description="Türkiye'de 70 yıl kuralı, yazar ile çevirmen şartı ve sanalbook kaynakları."
+>
+  <div class="sarmal">
+    <article class="sayfa">
+      <h1>{baslik}</h1>
+      <p>
+        Bu sayfa sitenin yayımlama kuralını anlatır. Bir avukat görüşü değildir.
+      </p>
+      <h2>Yetmiş yıl</h2>
+      <p>
+        5846 sayılı Fikir ve Sanat Eserleri Kanunu'na göre eser, sahibinin ölümünden sonra
+        yetmiş yıl korunur. Süre, ölüm yılını izleyen takvim yılının ilk gününden hesaplanır.
+        Bu, ölüm yılının sonundan itibaren yetmiş yıl geçmesiyle aynı sonuçtur.
+      </p>
+      <p>
+        Ömer Seyfettin 1920'de ölmüştür. Koruma 1 Ocak 1921'de başlar, 31 Aralık 1990'da
+        biter. Eserleri 1 Ocak 1991'den beri Türkiye'de serbesttir. Ölüm yılı, Vikikaynak
+        kişi sayfasında 1920 olarak kayıtlıdır:
+        <a href="https://tr.wikisource.org/wiki/Ki%C5%9Fi:%C3%96mer_Seyfettin">Kişi:Ömer Seyfettin</a>.
+      </p>
+      <h2>Yazar ve çevirmen</h2>
+      <p>
+        sanalbook bir metni ancak iki süre de dolduğunda yayımlar: yazarın süresi ve, metin
+        çeviri ya da aktarma ise, çevirmenin veya aktaranın süresi. Biri bile dolmamışsa
+        eser siteye girmez. Özgün Türkçe metinde çevirmen yoktur; künyede «yok» yazar ve
+        yalnız yazarın yılı denetlenir.
+      </p>
+      <p>
+        Serbestlik tarihi, iki tarihin geç olanıdır. Yazar 1920'de, çevirmen 1940'ta ölmüşse
+        eser 1 Ocak 2011'den önce yayımlanmaz.
+      </p>
+      <h2>Derleme denetimi</h2>
+      <p>
+        Kural <code>src/lib/telif.ts</code> içindedir. İçerik şeması
+        (<code>src/content.config.ts</code>) her eser kaydını derleme yılında bu işleve
+        sorar. Süre dolmamışsa, çevirmen adı varken ölüm yılı boşsa veya çevirmen yokken
+        ölüm yılı doluysa <code>npm run build</code> hata verir ve <code>dist</code>
+        üretilmez. Aynı denetim sayfalar üretilirken bir kez daha çalışır.
+      </p>
+      <h2>Kaynaklar</h2>
+      <p>
+        Aşağıdaki hikâyeler Vikikaynak aktarımlarıdır. Adres, metnin alındığı sürümü açar
+        (<code>oldid</code>). Vikikaynak'taki kelime dipnotları bölüm sonuna sözlük notu
+        olarak konmuştur. Dipnotun böldüğü çekim ekleri (örneğin «kethüdâ» + «sını»)
+        okuma metninde birleştirilmiştir; bu birleştirme viki işaretinden gelir, cümle
+        uydurulmamıştır.
+      </p>
+      <ul class="kaynak-liste">
+        {
+          eserler.map((eser) => (
+            <li>
+              <a href={eser.href}>{eser.data.title}</a>
+              {' — '}
+              <a href={eser.data.sourceUrl}>
+                {eser.data.sourceName}, sürüm {eser.data.sourceRevision}
+              </a>
+              <span class="bos"> ({tarihYaz(eser.data.sourceRetrieved)})</span>
+              {eser.data.originalPublication && (
+                <span class="bos">. İlk yayım: {eser.data.originalPublication}.</span>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+      <p>
+        Kaşağı ve Bomba sayfalarında ilk yayım künyesi yok. Pembe İncili Kaftan sayfası
+        Vikikaynak'ta kaynaksız metin kategorisindedir; ilk yayım notu ve yazar adı sayfada
+        yazılıdır, bu durum eser künyesinde de durur.
+      </p>
+    </article>
+  </div>
+</Base>

@@ -1,0 +1,50 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Kirinti from '../../../components/Kirinti.astro';
+import { katalogYukle } from '../../../lib/katalog';
+
+export async function getStaticPaths() {
+  const { kategoriler } = await katalogYukle();
+  return kategoriler.map((kategori) => ({
+    params: { ulke: kategori.ulke.data.slug, kategori: kategori.data.slug },
+    props: { kategori },
+  }));
+}
+
+const { kategori } = Astro.props;
+---
+
+<Base title={`${kategori.data.name} · ${kategori.ulke.data.name}`} description={kategori.data.description}>
+  <div class="sarmal">
+    <Kirinti
+      ogeler={[
+        { ad: 'Ülkeler', href: '/' },
+        { ad: kategori.ulke.data.name, href: `/${kategori.ulke.data.slug}` },
+        { ad: kategori.data.name },
+      ]}
+    />
+    <p class="kicker">{kategori.ulke.data.name}</p>
+    <h1>{kategori.data.name}</h1>
+    <p class="ozet">{kategori.data.description}</p>
+    {
+      kategori.eserler.length === 0 ? (
+        <p class="bos">Bu kategoride henüz eser yok.</p>
+      ) : (
+        <ul class="eserler">
+          {kategori.eserler.map((eser) => (
+            <li>
+              <a href={eser.href}>
+                <span class="kicker">Eser</span>
+                <strong>{eser.data.title}</strong>
+                <span>
+                  {eser.data.author}
+                  {eser.data.translator ? ` · ${eser.data.translator}` : ' · çevirmen yok'}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </div>
+</Base>

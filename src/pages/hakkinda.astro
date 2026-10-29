@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+
+const baslik = 'Hakkında';
+---
+
+<Base title={baslik} description="sanalbook nedir, neyi yayımlar, neyi bilerek dışarıda bırakır.">
+  <div class="sarmal">
+    <article class="sayfa">
+      <h1>{baslik}</h1>
+      <p>
+        sanalbook, Türkiye'de koruma süresi dolmuş edebî eserleri okumak için kurulmuş bir
+        sitedir. Eserler ülke, kategori, eser ve bölüm sırasıyla durur. İlk seçki Ömer
+        Seyfettin'in hikâyeleridir: Türkiye, sonra Hikâye.
+      </p>
+      <h2>Ne yok</h2>
+      <p>
+        Üyelik, jeton, reklam ve ziyaretçi analitiği yok. Metinler herkese açık. Tema seçimi
+        ve yazı boyu tarayıcınızda kalır; sunucuya hesap diye bir şey gitmez.
+      </p>
+      <h2>Metinler</h2>
+      <p>
+        Hikâyeler Türkçe özgün metindir. Çevirmen veya aktaran olmadığı için künyede bu alan
+        «yok» yazar. Aktarım, Vikikaynak sayfalarının belirli sürümlerinden alınmıştır.
+        Kelime açıklamaları yazarın cümlesi değildir; bölüm sonunda «Sözlük notları» diye
+        ayrılır. Kaynak adresi her eserin künyesindedir.
+      </p>
+      <h2>Yeni eser</h2>
+      <p>
+        Yeni bir eser, Markdown bölümü ve bir JSON kaydıyla eklenir. Kayıt; yazarın ölüm
+        yılını, varsa çevirmenin ölüm yılını ve kaynak adresini taşır. Derleme, 70 yıl
+        kuralını tutmayan kaydı yayımlamaz. Ayrıntı <a href="/telif">Telif ve Kaynaklar</a>
+        sayfasında ve deponun README dosyasındadır.
+      </p>
+    </article>
+  </div>
+</Base>
