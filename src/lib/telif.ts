@@ -17,6 +17,11 @@ export interface EserHakki {
   authorDeathYear: number;
   translator: string | null;
   translatorDeathYear: number | null;
+  /**
+   * latin: ilk basım 1928 sonrası Latin harfleriyle. Osmanlıca aktarım cümlesi yazılmaz.
+   * Yoksa veya osmanlica: aktaran belirtilmemiş cümlesi durur.
+   */
+  yazim?: 'latin' | 'osmanlica';
 }
 
 export interface TelifSonucu {
@@ -98,10 +103,13 @@ export function telifDenetle(eser: EserHakki, bugun = new Date().getFullYear()):
 
   const serbest = hatalar.length === 0;
 
+  const latinBasim = eser.yazim === 'latin';
   const gerekce = serbest
     ? cevirmenVar
       ? `Yazar ${eser.author} ${eser.authorDeathYear} yılında, çevirmen/aktaran ${cevirmen} ${eser.translatorDeathYear} yılında ölmüştür. sanalbook bir çeviriyi ancak hem yazarın hem çevirmenin ölüm yılının sonundan itibaren 70 yıl geçtikten sonra yayımlar. Yazar için serbestlik 1 Ocak ${yazarSerbest}, çevirmen için 1 Ocak ${cevirmenSerbest} başlar. Eser, geç olan tarihten, yani 1 Ocak ${serbestYil} tarihinden beri Türkiye'de serbesttir.`
-      : `${eser.author} ${eser.authorDeathYear} yılında ölmüştür. Metin aslen Osmanlıca harflerle yayımlanmıştır; Latin harflerine aktaranı kaynakta belirtilmemiştir. Türkiye'de koruma süresi ölüm yılının sonundan itibaren 70 yıldır; bu süre 31 Aralık ${korumaBitisYili(eser.authorDeathYear)} tarihinde biter. Eser 1 Ocak ${yazarSerbest} tarihinden beri Türkiye'de serbesttir.`
+      : latinBasim
+        ? `${eser.author} ${eser.authorDeathYear} yılında ölmüştür. Türkiye'de koruma süresi ölüm yılının sonundan itibaren 70 yıldır; bu süre 31 Aralık ${korumaBitisYili(eser.authorDeathYear)} tarihinde biter. Eser 1 Ocak ${yazarSerbest} tarihinden beri Türkiye'de serbesttir.`
+        : `${eser.author} ${eser.authorDeathYear} yılında ölmüştür. Metin aslen Osmanlıca harflerle yayımlanmıştır; Latin harflerine aktaranı kaynakta belirtilmemiştir. Türkiye'de koruma süresi ölüm yılının sonundan itibaren 70 yıldır; bu süre 31 Aralık ${korumaBitisYili(eser.authorDeathYear)} tarihinde biter. Eser 1 Ocak ${yazarSerbest} tarihinden beri Türkiye'de serbesttir.`
     : hatalar.join(' ');
 
   return { serbest, serbestYil: serbest ? serbestYil : null, gerekce, hatalar };
