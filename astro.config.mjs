@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 
-// Tamamen statik çıktı. Cloudflare Pages `dist` klasörünü olduğu gibi sunar.
+// Tamamen statik çıktı. Wrangler bu `dist` klasörünü Workers Static Assets olarak sunar.
 export default defineConfig({
   output: 'static',
   build: {

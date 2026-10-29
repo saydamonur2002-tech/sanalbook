@@ -81,28 +81,31 @@ Süre, ölüm yılını izleyen 1 Ocak'ta başlar ve 70 yıl sonra biter. Serbes
 
 Hesap `src/lib/telif.ts` içindedir. Şema her eser kaydını derleme yılında bu işleve sorar. Süre dolmamışsa `npm run build` durur ve `dist` oluşmaz. Aynı denetim `scripts/check-telif.mjs` ile derlemenin başında da çalışır.
 
-## Cloudflare Pages
+## Cloudflare Workers
 
-Site statiktir. Sunucu uyarlaması (`@astrojs/cloudflare`) gerekmez. Pages, `dist` klasörünü olduğu gibi sunar.
+Site statiktir. `@astrojs/cloudflare` uyarlaması ve Worker betiği yoktur. `wrangler.jsonc` derlenmiş `dist` klasörünü [Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/) olarak sunar. Worker adı `sanalbook` olmalıdır; paneldeki proje bu addadır.
 
-Cloudflare panelinde **Workers & Pages → Create application → Pages → Import an existing Git repository**. Depoyu seçip **Begin setup**. **Set up builds and deployments** bölümü:
+| Alan | Değer |
+| --- | --- |
+| `name` | `sanalbook` |
+| `compatibility_date` | `2026-10-29` |
+| `assets.directory` | `./dist` |
+| `assets.html_handling` | `auto-trailing-slash` |
+| `assets.not_found_handling` | `404-page` |
+
+`html_handling`, Astro'nun klasör çıktısına uyar: `/turkiye` adresi `/turkiye/` adresine yönlenir ve `dist/turkiye/index.html` sunulur. `404-page`, eşleşmeyen istekte `src/pages/404.astro` çıktısı olan `dist/404.html` dosyasını 404 durumuyla döner.
+
+Workers Builds iki adım çalıştırır. Ayarlar Worker içinde **Settings → Build** altındadır.
 
 | Ayar | Değer |
 | --- | --- |
 | Production branch | `main` |
-| Framework preset | Astro (yoksa None) |
 | Build command | `npm run build` |
-| Build directory | `dist` |
-| Root directory | `/` (depo kökü) |
+| Deploy command | `npx wrangler deploy` |
+| Root directory | `/` |
 
-Ortam değişkeni:
+`NODE_VERSION` ortam değişkenini `22` yapın. Telif denetimi bu Node sürümünü kullanır. Deploy komutu, `package.json` içindeki Wrangler sürümünü çalıştırır.
 
-| Değişken | Değer |
-| --- | --- |
-| `NODE_VERSION` | `22` |
+Her `main` itmesi siteyi yeniden derler ve https://sanalbook.saydamonur2002.workers.dev/ adresine yayınlar. Yerelde denemek için `npm run build`, ardından `npx wrangler dev`.
 
-Kayıttan sonra **Save and Deploy**. Her itmede üretim dalı yeniden derlenir. Çekme istekleri önizleme adresi alır.
-
-Yerelde üretilmiş `dist` için **Direct Upload** da aynı klasörü kullanır. İşlev (Pages Functions), KV veya D1 gerekmez.
-
-Ayrıntı: [Cloudflare Pages üzerinde Astro](https://developers.cloudflare.com/pages/framework-guides/deploy-an-astro-site/).
+Ayrıntı: [Astro on Workers](https://developers.cloudflare.com/workers/framework-guides/web-apps/astro/) ve [SSG yönlendirme](https://developers.cloudflare.com/workers/static-assets/routing/static-site-generation/).
