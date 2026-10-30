@@ -1,6 +1,6 @@
 # sanalbook
 
-Türkiye'de koruma süresi dolmuş edebî eserleri okumak için statik bir site. Arayüz Türkçedir. Üyelik, reklam ve analitik yoktur.
+Türkiye'de koruma süresi dolmuş edebî eserleri okumak için statik bir site. Arayüz Türkçedir. Üyelik ve reklam yoktur. Ziyaret sayıları çerezsiz Cloudflare Web Analytics ile toplu istatistik olarak tutulur.
 
 Sıra: **ülke → kategori → eser → bölüm**.
 
