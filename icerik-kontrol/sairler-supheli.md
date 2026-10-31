@@ -1,0 +1,353 @@
+# Şairler — eklenmeyenler
+
+Tarama: 30 Ekim 2026. Kaynak: tr.wikisource.org, Kişi ad alanı (440 sayfa).
+Bu dosya site içeriği değildir; `dist/` içine kopyalanmaz.
+
+Eklenen şiir, ölüm yılı kesin ve 1955 veya daha eski olan, sitede daha önce bulunmayan şairlerdendir. Nesir, sadeleştirilmiş sayfa ve başkasının çevirisi alınmadı. Ölüm yılı şablonda, tarih aralığında veya «yılında ölenler» kategorisinde tek yıl olarak durmuyorsa kişi eklenmedi.
+
+Eklenen: 369 şiir, 68 şair. Leylâ vü Mecnûn 32, İskendernâme 7 bölüm olarak tek eser sayıldı.
+
+## Sitede olduğu için atlanan
+
+- Abdî — sitede Abdî adıyla var.
+- Abdülhak Hamit Tarhan — sitede Abdülhak Hâmit Tarhan adıyla var.
+- Abdürrezzâk Nevres — sitede Abdürrezzâk Nevres adıyla var.
+- Agahi — sitede Agahi adıyla var.
+- Ahmed Paşa — sitede Ahmed Paşa adıyla var.
+- Ahmed Sadık Zîver Paşa — sitede Ahmed Paşa adıyla var.
+- Ahmedî — sitede Ahmedî adıyla var.
+- Ahmet Haşim — sitede Ahmet Haşim adıyla var.
+- Ahmet Rasim — sitede Ahmet Rasim adıyla var.
+- Ahmet Refik Altınay — sitede Ahmet Refik Altınay adıyla var.
+- Ali Ekrem Bolayır — sitede Ali Ekrem Bolayır adıyla var.
+- Ani Hatun — sitede Ani Hatun adıyla var.
+- Antepli Aynî — sitede Antepli Aynî adıyla var.
+- Aşık Dertli — sitede Aşık Dertli adıyla var.
+- Bursalı Âşık Yunus — sitede Bursalı Âşık Yunus adıyla var.
+- Bâkî — sitede Bâkî adıyla var.
+- Celâl Sahir Erozan — sitede Celâl Sahir Erozan adıyla var.
+- Cenab Şahabeddin — sitede Cenab Şahabeddin adıyla var.
+- Cevrî — sitede Cevrî adıyla var.
+- Enderunlu Vasıf — sitede Enderunlu Vasıf adıyla var.
+- Erbabi — sitede Erbabi adıyla var.
+- Erzurumlu İbrahim Hakkı — sitede Erzurumlu İbrahim Hakkı adıyla var.
+- Eşrefoğlu Rumî — sitede Eşrefoğlu Rumî adıyla var.
+- Feride Hanım — sitede Feride Hanım adıyla var.
+- Fuzûlî — sitede Fuzûlî adıyla var.
+- Fıtnat Hanım — sitede Fıtnat Hanım adıyla var.
+- Harabi — sitede Harabi adıyla var.
+- Hatice Nakiye Hanım — sitede Hatice Nakiye Hanım adıyla var.
+- Hayretî — sitede Hayretî adıyla var.
+- I. Ahmet — sitede I. Ahmet adıyla var.
+- Kadı Burhaneddin — sitede Kadı Burhaneddin adıyla var.
+- Kanuni Sultan Süleyman — sitede Kanuni Sultan Süleyman adıyla var.
+- Karacaoğlan — sitede Karacaoğlan adıyla var.
+- Kaytazzade Mehmet Nazım — sitede Kaytazzade Mehmet Nazım adıyla var.
+- Kemalettin Kamu — sitede Kemalettin Kamu adıyla var.
+- Leylâ Hanım — sitede Leylâ Hanım adıyla var.
+- Lâmekânî — sitede Lâmekânî adıyla var.
+- Magcan Cumabay — sitede Magcan Cumabay adıyla var.
+- Mehmet Ali Ertekin — sitede Mehmet Ali Ertekin adıyla var.
+- Mehmet Emin Yurdakul — sitede Mehmet Emin Yurdakul adıyla var.
+- Mehmet Âkif Ersoy — sitede Mehmet Âkif Ersoy adıyla var.
+- Mezâkî — sitede Mezâkî adıyla var.
+- Mihrî Hatun — sitede Mihrî Hatun adıyla var.
+- Muhyiddin Abdal — sitede Muhyiddin Abdal adıyla var.
+- Mustafa Kemal Atatürk — sitede Mustafa Kemal Atatürk adıyla var.
+- Namık Kemal — sitede Namık Kemal adıyla var.
+- Nebîl — sitede Nebîl adıyla var.
+- Necati — sitede Necati adıyla var.
+- Nedim — sitede Nedim adıyla var.
+- Neyzen Tevfik — sitede Neyzen Tevfik adıyla var.
+- Niyâzî-i Mısrî — sitede Niyâzî-i Mısrî adıyla var.
+- Nâbi — sitede Nâbi adıyla var.
+- Orhan Veli Kanık — sitede Orhan Veli Kanık adıyla var.
+- Osman Cemal Kaygılı — sitede Osman Cemal Kaygılı adıyla var.
+- Rahmî — sitede Rahmî adıyla var.
+- Rüştü Onur — sitede Rüştü Onur adıyla var.
+- Rıza Tevfik Bölükbaşı — sitede Rıza Tevfik Bölükbaşı adıyla var.
+- Sabahattin Ali — sitede Sabahattin Ali adıyla var.
+- Senih Efendi — sitede Süleyman Senîh Efendi adıyla var.
+- Seyyid Nesimi — sitede Seyyid Nesimi adıyla var.
+- Süleyman Nazif — sitede Süleyman Nazif adıyla var.
+- Süleyman Senîh Efendi — sitede Süleyman Senîh Efendi adıyla var.
+- Süleyman Çelebi — sitede Süleyman Çelebi adıyla var.
+- Sümmani — sitede Sümmani adıyla var.
+- Sıdkı Baba — sitede Sıdkı Baba adıyla var.
+- Tevfik Fikret — sitede Tevfik Fikret adıyla var.
+- Tevhide Hanım — sitede Tevhide Hanım adıyla var.
+- Vasıf Osman Bey — sitede Vasıf Osman Bey adıyla var.
+- Yunus Emre — sitede Yunus Emre adıyla var.
+- Ziya Gökalp — sitede Ziya Gökalp adıyla var.
+- Ziya Paşa — sitede Ziya Paşa adıyla var.
+- Âdile Sultan — sitede Âdile Sultan adıyla var.
+- Âşık Elesker — sitede Âşık Elesker adıyla var.
+- Âşık Mesleki — sitede Âşık Mesleki adıyla var.
+- Âşık Ömer — sitede Âşık Ömer adıyla var.
+- Âşık Şenlik — sitede Âşık Şenlik adıyla var.
+- Ömer Bedrettin Uşaklı — sitede Ömer Bedrettin Uşaklı adıyla var.
+- Ömer Seyfettin — sitede Ömer Seyfettin adıyla var.
+- Üsküdarlı Nûri Mehmed Efendi — sitede Üsküdarlı Nûri Mehmed Efendi adıyla var.
+- İbrahim Alâeddin Gövsa — sitede İbrahim Alâeddin Gövsa adıyla var.
+- İbrahim Şinâsî — sitede İbrahim Şinâsî adıyla var.
+- İzzeddin Hasanoğlu — sitede İzzeddin Hasanoğlu adıyla var.
+- Şeref Hanım — sitede Şeref Hanım adıyla var.
+- Şeyh Galip — sitede Şeyh Galip adıyla var.
+- Şeyhî — sitede Şeyhî adıyla var.
+- Şâkir — sitede Şâkir adıyla var.
+
+## Ölüm yılı belirsiz (eklenmedi)
+
+63 kişi. Yıl uydurulmadı.
+
+- Recep Tayyip Erdoğan — ölüm yılı alanı yok (59 bağlantı)
+- Kul Himmet — ölüm yılı alanı yok (40 bağlantı)
+- Pir Sultan Abdal — ölüm yılı alanı yok (32 bağlantı)
+- Kemal Kılıçdaroğlu — belirsiz: günümüz (29 bağlantı)
+- Korkut Ata — ölüm yılı alanı yok (18 bağlantı)
+- Şah Hatayi — ölüm yılı alanı yok (16 bağlantı)
+- Teslim Abdal — ölüm yılı alanı yok (15 bağlantı)
+- Ahmet Davutoğlu — ölüm yılı alanı yok (14 bağlantı)
+- Derviş Mehmed — soru işaretli: ? (11 bağlantı)
+- Kul Mustafa — ölüm yılı alanı yok (10 bağlantı)
+- Yemini — ölüm yılı alanı yok (10 bağlantı)
+- Aşık Hüseyin Tenecioğlu — ölüm yılı alanı yok (7 bağlantı)
+- Kul Nesimi — ölüm yılı alanı yok (7 bağlantı)
+- Kalender — soru işaretli: ? (6 bağlantı)
+- Virani — ölüm yılı alanı yok (6 bağlantı)
+- Âşık Garip — soru işaretli: ? (6 bağlantı)
+- Abdal Musa — ölüm yılı alanı yok (5 bağlantı)
+- Dadaloğlu — ölüm yılı alanı yok (5 bağlantı)
+- Sadık Abdal — soru işaretli: ? (5 bağlantı)
+- Said Emre — ölüm yılı alanı yok (5 bağlantı)
+- Seher Abdal — ölüm yılı alanı yok (5 bağlantı)
+- Âşık Âhû Karaoğlu — belirsiz: 17. yüzyıl (5 bağlantı)
+- Abdal — soru işaretli: ? (4 bağlantı)
+- Kaygusuz Abdal — ölüm yılı alanı yok (4 bağlantı)
+- Abdülahad Nûrî — soru işaretli: ? (3 bağlantı)
+- Câferî — soru işaretli: ? (3 bağlantı)
+- Kazak Abdal — soru işaretli: ? (3 bağlantı)
+- Kul Hüseyin — ölüm yılı alanı yok (3 bağlantı)
+- Âşık Cemalî — ölüm yılı alanı yok (3 bağlantı)
+- Şemsî — ölüm yılı alanı yok (3 bağlantı)
+- Haydarî — ölüm yılı alanı yok (2 bağlantı)
+- Kanberî — ölüm yılı alanı yok (2 bağlantı)
+- Kelâmî — ölüm yılı alanı yok (2 bağlantı)
+- Kul Bayramlı — soru işaretli: ? (2 bağlantı)
+- Osman Şems — ölüm yılı alanı yok (2 bağlantı)
+- Yetimî — soru işaretli: ? (2 bağlantı)
+- Âşık Esrarî — soru işaretli: ? (2 bağlantı)
+- Ümmî Sinan — ölüm yılı alanı yok (2 bağlantı)
+- Ahû — soru işaretli: ? (1 bağlantı)
+- Azmî — soru işaretli: ? (1 bağlantı)
+- Aşık Kerem — belirsiz: 16. yüzyıl (1 bağlantı)
+- Ballı Baba — soru işaretli: ? (1 bağlantı)
+- Erzurumlu Emrah — ölüm yılı alanı yok (1 bağlantı)
+- Feyzi Hasan Baba — soru işaretli: ? (1 bağlantı)
+- Geda Musli — soru işaretli: ? (1 bağlantı)
+- Himmeti Baba — soru işaretli: ? (1 bağlantı)
+- Hoca Dehhani — soru işaretli: ? (1 bağlantı)
+- Homeros — ölüm yılı alanı yok (1 bağlantı)
+- Koyun Abdal — soru işaretli: ? (1 bağlantı)
+- Kul Mazlum — soru işaretli: ? (1 bağlantı)
+- Kul Âdil — ölüm yılı alanı yok (1 bağlantı)
+- Kurbani — belirsiz: 16. yüzyıl (1 bağlantı)
+- Köroğlu — ölüm yılı alanı yok (1 bağlantı)
+- Kıvılcım Hindistan — ölüm yılı alanı yok (1 bağlantı)
+- Sekkaki — ölüm yılı alanı yok (1 bağlantı)
+- Seyyid Ali Sultan — soru işaretli: ? (1 bağlantı)
+- Sâfî — ölüm yılı alanı yok (1 bağlantı)
+- Tufeylî — soru işaretli: ? (1 bağlantı)
+- Zeyneb Hatun — ölüm yılı alanı yok (1 bağlantı)
+- Şâhî — ölüm yılı alanı yok (1 bağlantı)
+- Fakir Edna — soru işaretli: ? (0 bağlantı)
+- Kul Mehmet — ölüm yılı alanı yok (0 bağlantı)
+- Öksüz Dede — ölüm yılı alanı yok (0 bağlantı)
+
+## 1956 ve sonrası
+
+- Yahya Kemal Beyatlı — 1958
+- Hüseyin Siret Özsever — 1959
+- Nâzım Hikmet — 1963
+- Siegfried Sassoon — 1967
+- Âşık Veysel — 1973
+- İsmet İnönü — 1973
+- Dursun Kılıç (Âşık Cevlânî) — 1975
+- Necip Fazıl Kısakürek — 1983
+- Melih Cevdet Anday — 2002
+- Bülent Ecevit — 2006
+- Yaşar Kemal — 2015
+
+## Yabancı şair (Türkçe sayfa çeviri sayıldı)
+
+- Dziga Vertov — 1954
+- Friedrich Engels — 1895
+- George Washington — 1799
+- Jean de La Fontaine — 1695
+- John Keats — 1821
+- Karl Marx — 1883
+- Matsuo Basho — 1694
+- Mevlânâ Celâleddîn-i Rûmî — 1273
+- Oscar Wilde — 1900
+- Rabindranth Tagore — 1941
+- Rudyard Kipling — 1936
+- Sofokles — 406
+- Virginia Woolf — 1941
+- William Blake — 1827
+
+## Şair, eklenecek şiiri çıkmayan
+
+- Abdullah Cevdet (1932) — bağlantı yok
+- Abdülmecit (1861) — 2 Şiir değil veya metin çıkmadı
+- Ahmed Avni Konuk (1938) — 447 Sayfa yok, 160 Başkasının çevirisi
+- Ahmed Cevad (1937) — 2 Başkasının çevirisi
+- Ahmed Yesevi (1166) — 1 Şiir değil veya metin çıkmadı
+- Ak Aşık (1860) — bağlantı yok
+- Arşî (1562) — 1 Latin aktarımı yok.
+- Askerî (1591) — 1 Latin aktarımı yok.
+- Balım Sultan (1516) — 3 Latin aktarımı yok.
+- Bağdadlı Rûhî (1605) — 6 Latin aktarımı yok.
+- Fazli (1605) — 3 Latin aktarımı yok.
+- Hafız Ahmet Paşa (1632) — 1 Şiir değil veya metin çıkmadı
+- Hayalî (1557) — 4 Latin aktarımı yok.
+- Husrev (1595) — 3 Latin aktarımı yok.
+- Hüseynî (1621) — 3 Latin aktarımı yok.
+- II. Abdülhamid (1918) — 4 Şiir değil veya metin çıkmadı, 4 Latin aktarımı yok.
+- II. Bayezid (1566) — 2 Şiir değil veya metin çıkmadı, 1 Sayfa yok, 1 Latin aktarımı yok.
+- II. Mahmud (1839) — 2 Şiir değil veya metin çıkmadı
+- II. Mehmed (1481) — 5 Şiir değil veya metin çıkmadı, 1 Latin aktarımı yok.
+- II. Selim (1574) — 2 Şiir değil veya metin çıkmadı, 1 Sayfa yok
+- III. Murad (1595) — 1 Şiir değil veya metin çıkmadı
+- III. Mustafa (1774) — 1 Şiir değil veya metin çıkmadı
+- IV. Murat (1640) — 1 Şiir değil veya metin çıkmadı
+- Kalender Çelebi (1528) — 2 Latin aktarımı yok., 1 Sayfa yok
+- Kul Hasan (1736) — 4 Latin aktarımı yok.
+- Kânî (1791) — 1 Latin aktarımı yok.
+- Mahmut Esat Bozkurt (1943) — 22 Sayfa yok, 4 Şiir değil veya metin çıkmadı, 2 Latin aktarımı yok.
+- Matthías Jochumsson (1920) — 1 Sayfa yok
+- Mehmet Rauf (1931) — bağlantı yok
+- Mikayıl Müşfik (1938) — 4 Başkasının çevirisi
+- Muhyî-i Gülşenî (1605) — bağlantı yok
+- Nefi (1635) — 13 Latin aktarımı yok., 1 Aynı sayfa Fuzûlî adına eklendi.
+- Nemayî (1596) — 2 Latin aktarımı yok.
+- Recaizade Mahmut Ekrem (1914) — 18 Latin aktarımı yok., 13 Sayfa yok, 5 Şiir değil veya metin çıkmadı, 1 Viki kalıntısı kaldı, eklenmedi.
+- Ruhsatî (1911) — 2 Latin aktarımı yok.
+- Sadettin Nüzhet Ergun (1946) — 1 Latin aktarımı yok.
+- Sermed (1787) — 1 Latin aktarımı yok.
+- Sersem Ali Baba (1569) — 4 Latin aktarımı yok.
+- Seydi Ali Reis (1562) — 3 Sayfa yok
+- Sâmih Rifat (1932) — bağlantı yok
+- Sânî (1586) — 2 Latin aktarımı yok.
+- Süleyman Çolpan (1938) — 2 Başkasının çevirisi, 1 Sayfa yok
+- Sürûrî (1591) — 10 Latin aktarımı yok.
+- Thomas Aquinas (1274) — 615 Sayfa yok
+- Vahdeti Baba (1598) — 2 Latin aktarımı yok.
+- Yavuz Sultan Selim (1520) — 3 Şiir değil veya metin çıkmadı
+- Yetim Ali Çelebi (1552) — 3 Latin aktarımı yok.
+- Yusuf Has Hacib (1077) — 1 Sayfa yok
+- Zekeriyazade Yahya (1644) — 3 Latin aktarımı yok.
+- Zâtî (1546) — 3 Latin aktarımı yok.
+- Âşık Necef Daşkentli (1919) — 1 Başkasının çevirisi, 1 Sayfa yok
+
+## Eklenen şairlerde alınmayan sayfalar
+
+Kırmızı bağlantı, nesir, çeviri ve Latin aktarımı olmayan sayfa şiire yazılmadı. Alt sayfası olmayan uzun dizinler de bu sayıdadır.
+
+- Yunus Emre — 54 şiir değil / Latin yok, 1 kırmızı
+  - Ah N'ideyim Ömrüm Seni (Latin aktarımı yok.)
+  - Âşık - Maşuk (Şiir değil veya metin çıkmadı (nesir/kısa).)
+  - Âşıklar Ölmez (Latin aktarımı yok.)
+  - Aşk (Latin aktarımı yok.)
+  - Aşk Kitabın Okuruz (Latin aktarımı yok.)
+  - Aşk Odu (Şiir değil veya metin çıkmadı (nesir/kısa).)
+- Ahmet Haşim — 1 şiir değil / Latin yok
+  - Mukaddime (Şiir değil veya metin çıkmadı (nesir/kısa).)
+- Tevfik Fikret — 148 kırmızı, 1 şiir değil / Latin yok
+  - Kuşlarla (Latin aktarımı yok.)
+- Fuzûlî — 12 şiir değil / Latin yok
+  - Aşk Belasına At Beni Tanrım (Latin aktarımı yok.)
+  - Çeşm-i Giryanım görüp (Latin aktarımı yok.)
+  - Dehenin Derdüme Dermân Dediler Cânânum (Latin aktarımı yok.)
+  - Gerçi Ey Dil Yâr İçün Yüz Verdi Yüz Mihnet Sana (Latin aktarımı yok.)
+  - Kerem kıl, kesme sâkıy, iltifatın bînevâlardan (Latin aktarımı yok.)
+  - Mürde Cânım İltifâtundan Bulur Her Dem Hayât (Latin aktarımı yok.)
+- Bâkî — 1 şiir değil / Latin yok
+  - Kanuni Mersiyesi (Latin aktarımı yok.)
+- Karacaoğlan — 3 şiir değil / Latin yok
+  - Karacaoğlan Efsanesi (Şiir değil veya metin çıkmadı (nesir/kısa).)
+  - Yeşil Başlı Gövel Ördek (Latin aktarımı yok.)
+  - İncecikten Bir Kar Yağar (Latin aktarımı yok.)
+- Nedim — 6 şiir değil / Latin yok, 1 kırmızı
+  - Murâdın anlarız ol gamzenin iz'ânımız vardır (Latin aktarımı yok.)
+  - Mest-i nâzım kim büyütdü böyle bî-pervâ seni (Latin aktarımı yok.)
+  - Esdikçe bâd-ı subh perîşânsın ey gönül (Latin aktarımı yok.)
+  - Ey kaşı yâ yüzün beri dönmez misin dahi (Latin aktarımı yok.)
+  - al olmuş sana redifli gazel (Latin aktarımı yok.)
+  - Nevruziye (Latin aktarımı yok.)
+- Seyyid Nesimi — 1 çeviri
+  - Kıblegâhımdır Ali (Başkasının çevirisi (Kullanıcı:Şah I İsmayıl).)
+- Sıdkı Baba — 1 kırmızı
+- Necati — 2 kırmızı
+- Eşrefoğlu Rumî — 1 şiir değil / Latin yok
+  - '''Şiirleri''' (Latin aktarımı yok.)
+- Şeyhî — 1 şiir değil / Latin yok
+  - Harnâme (Latin aktarımı yok.)
+- Kadı Burhaneddin — 1 kırmızı
+- Kaytazzade Mehmet Nazım — 2 şiir değil / Latin yok, 1 sade
+  - Netice-i İbtila (Şiir değil veya metin çıkmadı (nesir/kısa).)
+  - Gazel-i Hamaset (Sadeleştirme veya günümüz Türkçesi ibaresi var.)
+  - Tahassür (Latin aktarımı yok.)
+- Ziya Paşa — 2 şiir değil / Latin yok
+  - Zafername (Latin aktarımı yok.)
+  - Diyar-ı küfrü gezdim beldeler kâşaneler gördüm (Latin aktarımı yok.)
+- Rahmî — 1 şiir değil / Latin yok
+  - Şehzade Mehmed Validesi Çeşmesi kitabesi (Latin aktarımı yok.)
+- Bursalı Âşık Yunus — 43 kırmızı, 1 aynı sayfa
+  - Şol Cennet’in Irmakları (Aynı sayfa Yunus Emre adına eklendi.)
+- Hayretî — 7 şiir değil / Latin yok
+  - Ey Rehnümâ-yi Hayl-i Muhibbân Yâ Ali (Latin aktarımı yok.)
+  - Ey Pâdişâh-ı Zümre-i Merdân Yâ Hüseyn (Latin aktarımı yok.)
+  - Buldular Ol Bînişandan Çün Nişan Abdâllar (Latin aktarımı yok.)
+  - Olmayub Âlemde Sûret Satmada Dellâllar (Latin aktarımı yok.)
+  - Nice bir Zülf Gibi Hâk İle Yeksân Olalım (Latin aktarımı yok.)
+  - Erenlerden Eğer Olursa Himmet (Latin aktarımı yok.)
+- Âşık Elesker — 2 çeviri
+  - Çarşamba Gününde, Çeşme Başında (Başkasının çevirisi (Vikikaynak kullanıcısı).)
+  - Düşmüşüm (Başkasının çevirisi (|bağsızçevirmen=Kullanıcı:Sevindiknesiboglu2008).)
+- Erzurumlu İbrahim Hakkı — 43 şiir değil / Latin yok, 2 kırmızı
+  - Marifetname/1 (Şiir değil veya metin çıkmadı (nesir/kısa).)
+  - Marifetname/2 (Şiir değil veya metin çıkmadı (nesir/kısa).)
+  - Marifetname/3 (Şiir değil veya metin çıkmadı (nesir/kısa).)
+  - Marifetname/4 (Şiir değil veya metin çıkmadı (nesir/kısa).)
+  - Marifetname/5 (Şiir değil veya metin çıkmadı (nesir/kısa).)
+  - Marifetname/6 (Şiir değil veya metin çıkmadı (nesir/kısa).)
+- Mezâkî — 1 şiir değil / Latin yok
+  - Gazel (Üsküdar redifli) (Latin aktarımı yok.)
+- Mihrî Hatun — 1 şiir değil / Latin yok
+  - Gazelleri (Latin aktarımı yok.)
+- Muhyiddin Abdal — 16 şiir değil / Latin yok
+  - Zâhid Bize Ta'n Eyleme (Latin aktarımı yok.)
+  - Yine Bir Söz Diyelim Dil ü Candan (Latin aktarımı yok.)
+  - Varmagıl Bir Yere Gel Olmayınca (Latin aktarımı yok.)
+  - Çün Eriştim Ben Cânânın İzine (Latin aktarımı yok.)
+  - Ey Hak’kın Tâlibi Gezme Âvâre (Latin aktarımı yok.)
+  - Aceb Dostdan Bize Nazar Ola mı (Latin aktarımı yok.)
+- Magcan Cumabay — 3 çeviri
+  - Türkistan (Başkasının çevirisi (Vikikaynak kullanıcısı).)
+  - Ural (Başkasının çevirisi (Vikikaynak kullanıcısı).)
+  - Ural Dağı (Başkasının çevirisi (Vikikaynak kullanıcısı).)
+- Aşık Dertli — 2 şiir değil / Latin yok
+  - Şeytan Bunun Neresinde (Şiir değil veya metin çıkmadı (nesir/kısa).)
+  - Bana Olan Cefa Senden Değildir (Latin aktarımı yok.)
+- Cenab Şahabeddin — 1 şiir değil / Latin yok
+  - Tâmât (Latin aktarımı yok.)
+- I. Ahmet — 1 şiir değil / Latin yok
+  - Kuyucu Murat Paşa'yı sadrazamlığa getiren Hatt-ı Hümayunu (Şiir değil veya metin çıkmadı (nesir/kısa).)
+- İbrahim Şinâsî — 1 şiir değil / Latin yok
+  - Münâcât (Şiir değil veya metin çıkmadı (nesir/kısa).)
+- Ahmedî — 23 kırmızı
+
+Ahmed Avni Konuk’un Mesnevi çevirisi ve Thomas Aquinas dizini şiire alınmadı; kırmızı alt sayfaları bu özete yazılmadı.
+
+İskendernâme’nin Vikikaynak’ta duran bölümleri 1–700 beyittir; sonraki yüzer beyitlik sayfaların bir kısmı yoktur. Leylâ vü Mecnûn, Dîbâce ile 1–3098 aralığındaki mevcut sayfalardan kuruldu.
+
